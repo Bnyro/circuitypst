@@ -180,6 +180,21 @@
 
 /// Logic gates
 
+// BUF gate
+// type: node, fillable
+#let buf-gate = {
+  parts.buf-gate-body
+  parts.logic-gate-legs-single
+}
+
+// NOT gate
+// type: node, fillable
+#let not-gate = {
+  parts.buf-gate-body
+  parts.not-circle
+  parts.logic-gate-legs-single
+}
+
 /// AND gate
 /// type: node, fillable
 #let and-gate = {
@@ -229,6 +244,20 @@
   parts.xor-bar
 }
 
+/// MUX gate
+/// type: node, fillable
+#let mux-gate = {
+  parts.mux-gate-body
+  parts.logic-gate-legs-mux
+}
+
+/// DEC gate
+/// type: node, fillable
+#let dec-gate = {
+  parts.dec-gate-body
+  parts.logic-gate-legs-dec
+}
+
 #let path = (
   // Resistive bipoles
   "short": short,
@@ -252,10 +281,14 @@
   "op amp": op-amp,
 
   // Logic gates
+  "buf gate": buf-gate,
+  "not gate": not-gate,
   "and gate": and-gate,
   "nand gate": nand-gate,
   "or gate": or-gate,
   "nor gate": nor-gate,
   "xor gate": xor-gate,
-  "xnor gate": xnor-gate
+  "xnor gate": xnor-gate,
+  "mux gate": mux-gate,
+  "dec gate": dec-gate
 )

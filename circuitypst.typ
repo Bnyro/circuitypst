@@ -82,8 +82,8 @@
 
     anchor("center", (0,0))
 
-    line("start", (-0.5, 0))
-    line("end", (0.5, 0))
+    line("start", (0, 0.5))
+    line("end", (0, -0.5))
     components.path.at(component)
     utils.anchors((
       west: (-0.5, 0),
@@ -106,12 +106,11 @@
     if v != none {
       assert(type(v) == "content" or (type(v) == "array" and i.len() == 2 and type(v.first()) == "string" and type(v.last()) == "content"), message: "Invalid voltage syntax")
 
-      let y = -0.3
-      let plus = ((v1, v2) => vector.add(vector.lerp(v1, v2, 0.25), (0, y, 0)), "east", "end")
-      let minus = ((v1, v2) => vector.add(vector.lerp(v1, v2, 0.75), (0, y, 0)), "start", "west")
+      let x = 0.2
+      let y = 0.3
 
-      content((rel: (0,y), to: ("east", 0.25, "end")), $+$)
-      content((rel: (0,y), to: ("start", 0.75, "west")), $-$)
+      content((rel: (x,-y), to: ("east", 0.25, "end")), $+$)
+      content((rel: (x,y), to: ("start", 0.75, "east")), $-$)
       content("annotation", v)
     }
 

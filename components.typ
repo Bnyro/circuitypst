@@ -80,6 +80,29 @@
   ))
 }
 
+/// Battery
+/// type: path-style, fillable
+/// class: sources
+#let battery = {
+  line(
+    (-0.3, 0.15),
+    (0.3, 0.15),
+    stroke: (thickness: 2pt)
+  )
+  
+  line(
+    (-0.5, -0.15),
+    (0.5, -0.15)
+  )
+
+  anchors((
+    north: (0, 0.5),
+    south: (0, -0.5),
+    label: (-1, 0),
+    annotation: (1, 0),
+  ))
+}
+
 /// Arrows
 
 /// Arrow for current and voltage
@@ -265,6 +288,7 @@
 
   // Sources and generators
   "isourceAM": isourceAM,
+  "battery": battery,
 )
 
 #let node = (
